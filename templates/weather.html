@@ -15,6 +15,14 @@
     </head>
     <body>
         <h1>Hello World!</h1>
-        <em>{{ current_time }}</em>
+        <table>
+            {% for weather in weatherList %}
+                <tr>
+                    {% for data in weather %}
+                        <td>{{data}}</td>
+                    {% endfor %}   
+                </tr>
+            {% endfor %}
+        </table>
     </body>
 </html>
