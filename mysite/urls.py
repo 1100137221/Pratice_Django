@@ -19,7 +19,7 @@ from weather.views import weather
 from home.views import home
 
 urlpatterns = [
-    url('', home),
     url(r'^admin/', admin.site.urls),
     url(r'^weather/$', weather),
+    url('', home),
 ]
