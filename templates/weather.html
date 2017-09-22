@@ -1,39 +1,31 @@
-<!-- hello_world.html -->
+{% extends "layout.html" %}
 
-<!DOCTYPE html>
-<html>
-    <head>
-        <title>Weather</title>
-        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta/css/bootstrap.min.css" integrity="sha384-/Y6pD6FV/Vv2HJnA6t+vslU6fwYXjCFtcEpHbNJ0lyAFsXTsjBbfaDjzALeQsN6M" crossorigin="anonymous">
-    </head>
-    <body>
-        <table class="table">
-            {% for weather in weatherList %}
-                {%if forloop.counter == 1%}
-                    <thead>
-                        <tr>
-                            {% for data in weather %}
-                                <th>{{data}}</th>
-                            {% endfor %}   
-                        </tr>
-                    </thead>
-                {%else%}
-                
-                    {%if forloop.counter == 2%}
-                        <tbody>
-                    {%endif%}
+{% block content %}
+    <table class="table">
+        {% for weather in weatherList %}
+            {%if forloop.counter == 1%}
+                <thead>
                     <tr>
                         {% for data in weather %}
-                            <td>{{data}}</td>
+                            <th>{{data}}</th>
                         {% endfor %}   
                     </tr>
-                    {%if forloop.counter == weatherList|length %}
-                        <tbody>
-                    {%endif%}
+                </thead>
+            {%else%}
+            
+                {%if forloop.counter == 2%}
+                    <tbody>
                 {%endif%}
-                
-            {% endfor %}
-        </table>
-
-    </body>
-</html>
+                <tr>
+                    {% for data in weather %}
+                        <td>{{data}}</td>
+                    {% endfor %}   
+                </tr>
+                {%if forloop.counter == weatherList|length %}
+                    <tbody>
+                {%endif%}
+            {%endif%}
+            
+        {% endfor %}
+    </table>
+{% endblock %}
