@@ -1,13 +1,13 @@
 {% extends "layout.html" %}
 
 {% block content %}
-    <table class="table">
+    <table class="table table-striped header-fixed">
         {% for weather in weatherList %}
             {%if forloop.counter == 1%}
                 <thead>
                     <tr>
                         {% for data in weather %}
-                            <th>{{data}}</th>
+                            <th>{{data.title}}</th>
                         {% endfor %}   
                     </tr>
                 </thead>
@@ -18,7 +18,13 @@
                 {%endif%}
                 <tr>
                     {% for data in weather %}
-                        <td>{{data}}</td>
+                        <td>
+                            {{data.title}}
+                            <br/>
+                            {{data.temperature}} 
+                            <br/>
+                            <img src=" {{data.imgUrl}}" class="rounded-circle">
+                        </td>
                     {% endfor %}   
                 </tr>
                 {%if forloop.counter == weatherList|length %}
