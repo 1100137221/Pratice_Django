@@ -18,7 +18,7 @@ def weather(request):
 
     result = requests.get('http://www.cwb.gov.tw/V7/forecast/week/week.htm')
     result.encoding = 'UTF-8'
-    soup = BeautifulSoup(result.text)
+    soup = BeautifulSoup(result.text,"html5lib")
 
     weatherImgSrc = "http://www.cwb.gov.tw/V7/"
     weatherList = []
