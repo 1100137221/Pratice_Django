@@ -1,0 +1,50 @@
+
+{% extends "layout.html" %}
+{% load static %}
+
+{% block content %}
+    <table class="table table-striped table-fixed-header">
+        <thead class='header'>
+            <tr>
+                <th rowspan="2">幣別</th>
+                <th colspan="2">現金匯率</th>
+                <th colspan="2">即期匯率</th>
+            </tr>
+            <tr>
+                <th>
+                    本行買入
+                </th>
+                <th>
+                    本行賣出
+                </th>
+                <th>
+                    本行買入
+                </th>
+                <th>
+                    本行賣出
+                </th>
+            </tr>
+        </thead>
+        {% for rate in rateList %}
+                {%if forloop.counter == 0%}
+                    <tbody>
+                {%endif%}
+                <tr>
+                    <td>
+                        <!--<img src=" {{rate.countryImg}}" class="rounded-circle" />-->
+                        {{rate.countryName}}
+                    </td>
+                    <td>{{rate.buyCashRate}} </td>
+                    <td>{{rate.sellCashRate}} </td>
+                    <td>{{rate.buySpotRate}} </td>
+                    <td>{{rate.sellSpotRate}} </td>
+                </tr>
+                {%if forloop.counter == rateList|length %}
+                    <tbody>
+                {%endif%}
+        {% endfor %}
+    </table>
+    <link href="{% static "css/table-fixed-header.css" %} " rel='stylesheet' />
+    <script src="{% static "js/table-fixed-header.js" %}"></script>
+    <script src="{% static "js/weather_script.js" %}"></script>
+{% endblock %}

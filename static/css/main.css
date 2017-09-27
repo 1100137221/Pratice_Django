@@ -8,3 +8,7 @@ body {
 
   
   
+  .table thead th {
+    text-align: center !important;
+    vertical-align: center !important;
+  }
