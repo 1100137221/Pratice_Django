@@ -5,6 +5,6 @@ from home.models import Music
 
 def home(request):
 
-    print(Music.objects.get(pk=3))
-    print(Music.objects.all())
+    #print(Music.objects.get(pk=3))
+    #print(Music.objects.all())
     return render(request, 'home.html')

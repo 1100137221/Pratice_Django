@@ -1,0 +1,4 @@
+Django==1.11.5
+beautifulsoup4==4.6.0
+gunicorn==19.6.0
+whitenoise==3.3.1
