@@ -12,3 +12,12 @@ body {
     text-align: center !important;
     vertical-align: center !important;
   }
+
+
+  .red {
+    color: red;
+  }
+  
+  .blue {
+    color: blue;
+  }
