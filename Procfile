@@ -1,1 +1,1 @@
-web: gunicorn ptt_beauty_images.wsgi  --log-file -
+web: gunicorn gruchensite.wsgi  
