@@ -78,7 +78,8 @@ WSGI_APPLICATION = 'gruchensite.wsgi.application'
 
 if os.getenv('DATABASE_URL') is not None:
     import dj_database_url
-    DATABASES['default'] = dj_database_url.config()
+    db_from_env = dj_database_url.config(conn_max_age=500)
+    DATABASES['default'].update(db_from_env)
 else:
     DATABASES = {
         'default': {
