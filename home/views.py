@@ -5,6 +5,9 @@ from home.models import Music
 
 def home(request):
 
-    #print(Music.objects.get(pk=3))
-    #print(Music.objects.all())
-    return render(request, 'home.html')
+    Music.objects.create(song='My Second Trip', singer='去散散步吧')
+
+    print(Music.objects.all())
+    return render(request, 'home.html',{
+        "data": Music.objects.all()
+    })
