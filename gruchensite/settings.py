@@ -36,6 +36,7 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'whitenoise.runserver_nostatic',
+    'rest_framework',
     'home',
     'weather',
     'rate'
@@ -81,8 +82,12 @@ if os.getenv('DATABASE_URL') is not None:
     db_from_env = dj_database_url.config(conn_max_age=500)
     DATABASES = { 'default': db_from_env }
 else:
-    import dj_database_url
-    DATABASES = { 'default': dj_database_url.parse('postgres://ldhauyacvgxfxl:b25f7aea5f311cd2eaf700a66b6922ae93c922ddf1d8812c01c32b73e5836dba@ec2-107-22-160-199.compute-1.amazonaws.com:5432/dfaam714r409ib', conn_max_age=600) }
+    DATABASES = {
+        'default': {
+            'ENGINE': 'django.db.backends.sqlite3',
+            'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
+        }
+    }
 
 
 # Password validation
