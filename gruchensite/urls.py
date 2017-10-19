@@ -20,9 +20,11 @@ from rate.views import rate
 from home.views import home
 
 from rest_framework.routers import DefaultRouter
-from rate import views
+from rate.views import RateViewSet
+from weather.views import WeatherViewSet
 router = DefaultRouter()
-router.register(r'rate', views.RateViewSet)
+router.register(r'rate', RateViewSet)
+router.register(r'weather', WeatherViewSet)
 
 urlpatterns = [
     url(r'^admin/', admin.site.urls),
