@@ -7,6 +7,8 @@ class Rate(models.Model):
     sellCashRate = models.FloatField()
     buySpotRate = models.FloatField()
     sellSpotRate = models.FloatField()
+    bank = models.TextField(default="")
+    img = models.TextField(default="")
     lastModifyDate = models.DateTimeField(auto_now=True)
     created = models.DateTimeField(auto_now_add=True)
 
